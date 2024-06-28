@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2PzGr War Thunder Clan - Join the Elite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>2PzGr War Thunder Clan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0a0a0a;
-            color: #ffffff;
+            background-color: #0f1923;
+            color: #e0e0e0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -27,28 +27,28 @@
         header {
             text-align: center;
             padding: 40px 0;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border-bottom: 2px solid #ff4d4d;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4em;
+            font-size: 3.5em;
             margin-bottom: 10px;
+            color: #ff4655;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #ff4d4d;
-            text-shadow: 0 0 10px rgba(255, 77, 77, 0.7);
+            letter-spacing: 2px;
         }
         .subtitle {
             font-size: 1.2em;
-            color: #cccccc;
+            color: #8fa3b1;
         }
         .banner-container {
             position: relative;
-            margin: 20px 0;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
         }
         .banner {
             width: 100%;
@@ -56,67 +56,23 @@
             display: block;
             transition: transform 0.3s ease-in-out;
         }
-        .banner:hover {
+        .banner-container:hover .banner {
             transform: scale(1.05);
-        }
-        .cta-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(10, 10, 10, 0.8);
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #ff4d4d;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .cta-button:hover {
-            background-color: #ff6666;
-            transform: scale(1.05);
-        }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            margin: 40px 0;
-        }
-        .feature {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(26, 26, 26, 0.6);
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-        .feature:hover {
-            transform: translateY(-10px);
-        }
-        .feature-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #ff4d4d;
         }
         .discord-section {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            background-color: #2c2f33;
+            background-color: #1e2a35;
             padding: 15px;
-            border-radius: 10px;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
         .discord-section:hover {
-            background-color: #3d4144;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         .discord-logo {
             width: 30px;
@@ -126,37 +82,46 @@
         .discord-text {
             margin-right: 15px;
             font-weight: bold;
-            color: #ffffff;
+            color: #8fa3b1;
         }
         .discord-link {
             color: #7289da;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
         .discord-link:hover {
-            color: #8ea1e1;
+            color: #5b6eae;
         }
         .git-info {
             position: fixed;
-            bottom: 10px;
-            right: 10px;
-            font-size: 0.8em;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9em;
             text-align: right;
-            background-color: rgba(26, 26, 26, 0.8);
-            padding: 8px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            background-color: rgba(30, 42, 53, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
         .git-info:hover {
-            background-color: rgba(38, 38, 38, 0.8);
+            background-color: rgba(30, 42, 53, 1);
         }
         .git-info a {
             color: #7289da;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         .git-info a:hover {
-            text-decoration: underline;
+            color: #5b6eae;
+        }
+        .clan-description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #8fa3b1;
         }
     </style>
 </head>
@@ -164,38 +129,22 @@
     <div class="container">
         <header>
             <h1>2PzGr</h1>
-            <p class="subtitle">Elite War Thunder Clan - Dominate the Skies and Battlefields</p>
+            <p class="subtitle">Elite War Thunder Squadron</p>
         </header>
         <div class="banner-container">
             <img src="Banner.PNG" alt="2PzGr Clan Banner" class="banner">
-            <div class="cta-overlay">
-                <a href="#join" class="cta-button">Join Our Forces</a>
-            </div>
         </div>
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🎖️</div>
-                <p>Learn from the best and dominate your enemies</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🤝</div>
-                <h3>Strong Community</h3>
-                <p>Join a dedicated team of skilled players</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🏆</div>
-                <h3>Regular Tournaments</h3>
-                <p>Prove your worth in clan competitions</p>
-            </div>
+        <div class="clan-description">
+            <p>Join 2PzGr, where strategy meets firepower. We are a dedicated community of War Thunder enthusiasts, committed to mastering the art of armored warfare. Whether you're a seasoned veteran or a promising recruit, 2PzGr offers a platform to hone your skills, engage in thrilling battles, and forge lasting camaraderie.</p>
         </div>
-        <div class="discord-section" id="join">
+        <div class="discord-section">
             <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
-            <span class="discord-text">Join our Discord:</span>
+            <span class="discord-text">Join our Squadron:</span>
             <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
     </div>
     <div class="git-info" id="gitInfo">
-        Loading latest commit information...
+        Loading latest update information...
     </div>
 
     <script>
