@@ -11,12 +11,17 @@
             padding: 0;
             background-color: #1a1a1a;
             color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         header {
             text-align: center;
@@ -33,25 +38,41 @@
             display: block;
             margin: 0 auto;
         }
-        .discord-link {
-            display: inline-block;
+        .discord-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #7289da;
-            color: #ffffff;
-            text-decoration: none;
+            background-color: #2c2f33;
+            padding: 10px;
             border-radius: 5px;
+        }
+        .discord-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .discord-text {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .discord-link {
+            color: #7289da;
+            text-decoration: none;
             font-weight: bold;
         }
         .discord-link:hover {
-            background-color: #5b6eae;
+            text-decoration: underline;
         }
         .git-info {
-            position: absolute;
+            position: fixed;
             bottom: 10px;
-            right: 20px;
+            right: 10px;
             font-size: 0.8em;
             text-align: right;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 5px;
+            border-radius: 5px;
         }
         .git-info a {
             color: #7289da;
@@ -69,12 +90,14 @@
             <p>Welcome to our War Thunder Clan!</p>
         </header>
         <img src="Banner.PNG" alt="2PzGr Clan Banner" class="banner">
-        <div style="text-align: center;">
-            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">Join our Discord</a>
+        <div class="discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span class="discord-text">Join our Discord:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
-        <div class="git-info" id="gitInfo">
-            Loading latest commit information...
-        </div>
+    </div>
+    <div class="git-info" id="gitInfo">
+        Loading latest commit information...
     </div>
 
     <script>
