@@ -73,6 +73,8 @@
             background-color: rgba(26, 26, 26, 0.8);
             padding: 5px;
             border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         .git-info a {
             color: #7289da;
@@ -80,6 +82,18 @@
         }
         .git-info a:hover {
             text-decoration: underline;
+        }
+        .git-info-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 30px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .git-info-container:hover .git-info {
+            opacity: 1;
         }
     </style>
 </head>
@@ -96,8 +110,10 @@
             <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
     </div>
-    <div class="git-info" id="gitInfo">
-        Loading latest commit information...
+    <div class="git-info-container">
+        <div class="git-info" id="gitInfo">
+            Loading latest commit information...
+        </div>
     </div>
 
     <script>
