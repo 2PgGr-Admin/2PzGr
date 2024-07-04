@@ -215,7 +215,8 @@
         // Resolution: Match the size of the banner image
         // TODO: Implement the actual minigame logic
         function activateMinigame() {
-            welcomeTextElement.innerText = 'Minigame activated\nMinigra aktywowana';
+            const lang = document.getElementById('language-select').value;
+            welcomeTextElement.innerText = getMinigameActivatedText(lang);
             welcomeTextElement.classList.add('minigame-activated');
             bannerImage.classList.add('hidden');
             minigameCanvas.classList.remove('hidden');
@@ -265,6 +266,25 @@
                     return 'Welcome to our War Thunder Clan!\nДобро пожаловать в наш клан War Thunder!';
                 default:
                     return 'Welcome to our War Thunder Clan!';
+            }
+        }
+
+        function getMinigameActivatedText(lang) {
+            switch (lang) {
+                case 'pl':
+                    return 'Minigame activated\nMinigra aktywowana';
+                case 'zh':
+                    return 'Minigame activated\n小遊戲已啟動';
+                case 'de':
+                    return 'Minigame activated\nMinispiel aktiviert';
+                case 'fr':
+                    return 'Minigame activated\nMinijeu activé';
+                case 'pt':
+                    return 'Minigame activated\nMinijogo ativado';
+                case 'ru':
+                    return 'Minigame activated\nМини-игра активирована';
+                default:
+                    return 'Minigame activated';
             }
         }
 
