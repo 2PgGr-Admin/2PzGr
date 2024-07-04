@@ -142,10 +142,35 @@
             <span id="discord-text" class="discord-text">Join our Discord:</span>
             <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
-        <!-- Polish Discord Section -->
+        <!-- Additional Language Sections -->
         <div class="discord-section hidden" id="polish-discord-section">
             <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
             <span id="discord-text-pl" class="discord-text">Dołącz do naszego Discorda:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
+        <div class="discord-section hidden" id="cantonese-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-zh" class="discord-text">加入我們的Discord:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
+        <div class="discord-section hidden" id="german-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-de" class="discord-text">Tritt unserem Discord bei:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
+        <div class="discord-section hidden" id="french-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-fr" class="discord-text">Rejoignez notre Discord :</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
+        <div class="discord-section hidden" id="portuguese-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-pt" class="discord-text">Junte-se ao nosso Discord:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
+        <div class="discord-section hidden" id="russian-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-ru" class="discord-text">Присоединяйтесь к нашему Discord:</span>
             <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
     </div>
@@ -153,6 +178,11 @@
         <select id="language-select" class="language-select" onchange="setLanguage(this.value)">
             <option value="en">English</option>
             <option value="pl">Polski</option>
+            <option value="zh">廣東話</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="pt">Português</option>
+            <option value="ru">Русский</option>
         </select>
     </div>
     <div class="git-info-container">
@@ -168,6 +198,11 @@
         const bannerImage = document.getElementById('banner-image');
         const minigameCanvas = document.getElementById('minigame-canvas');
         const polishDiscordSection = document.getElementById('polish-discord-section');
+        const cantoneseDiscordSection = document.getElementById('cantonese-discord-section');
+        const germanDiscordSection = document.getElementById('german-discord-section');
+        const frenchDiscordSection = document.getElementById('french-discord-section');
+        const portugueseDiscordSection = document.getElementById('portuguese-discord-section');
+        const russianDiscordSection = document.getElementById('russian-discord-section');
 
         titleElement.addEventListener('click', () => {
             clickCount++;
@@ -199,12 +234,37 @@
         }
 
         function setLanguage(lang) {
-            if (lang === 'pl') {
-                document.getElementById('welcome-text').innerText = 'Welcome to our War Thunder Clan!\nWitamy w naszym klanie War Thunder!';
-                polishDiscordSection.classList.remove('hidden');
-            } else {
-                document.getElementById('welcome-text').innerText = 'Welcome to our War Thunder Clan!';
-                polishDiscordSection.classList.add('hidden');
+            const sections = {
+                pl: polishDiscordSection,
+                zh: cantoneseDiscordSection,
+                de: germanDiscordSection,
+                fr: frenchDiscordSection,
+                pt: portugueseDiscordSection,
+                ru: russianDiscordSection,
+                en: null
+            };
+
+            document.getElementById('welcome-text').innerText = getWelcomeText(lang);
+            Object.values(sections).forEach(section => section && section.classList.add('hidden'));
+            sections[lang] && sections[lang].classList.remove('hidden');
+        }
+
+        function getWelcomeText(lang) {
+            switch (lang) {
+                case 'pl':
+                    return 'Welcome to our War Thunder Clan!\nWitamy w naszym klanie War Thunder!';
+                case 'zh':
+                    return 'Welcome to our War Thunder Clan!\n歡迎來到我們的War Thunder部落!';
+                case 'de':
+                    return 'Welcome to our War Thunder Clan!\nWillkommen in unserem War Thunder Clan!';
+                case 'fr':
+                    return 'Welcome to our War Thunder Clan!\nBienvenue dans notre clan War Thunder!';
+                case 'pt':
+                    return 'Welcome to our War Thunder Clan!\nBem-vindo ao nosso clã War Thunder!';
+                case 'ru':
+                    return 'Welcome to our War Thunder Clan!\nДобро пожаловать в наш клан War Thunder!';
+                default:
+                    return 'Welcome to our War Thunder Clan!';
             }
         }
 
@@ -233,16 +293,24 @@
             fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
-                    if (data.country === 'PL') {
-                        document.getElementById('language-select').value = 'pl';
-                        setLanguage('pl');
-                    } else {
-                        document.getElementById('language-select').value = 'en';
-                        setLanguage('en');
-                    }
+                    const countryLangMap = {
+                        PL: 'pl',
+                        HK: 'zh',
+                        DE: 'de',
+                        AT: 'de',
+                        FR: 'fr',
+                        PT: 'pt',
+                        BR: 'pt',
+                        RU: 'ru'
+                    };
+                    const lang = countryLangMap[data.country] || 'en';
+                    document.getElementById('language-select').value = lang;
+                    setLanguage(lang);
                 })
                 .catch(error => {
                     console.error('Error detecting location:', error);
+                    document.getElementById('language-select').value = 'en';
+                    setLanguage('en');
                 });
         }
 
