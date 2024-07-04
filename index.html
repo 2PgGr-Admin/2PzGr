@@ -142,11 +142,17 @@
             <span id="discord-text" class="discord-text">Join our Discord:</span>
             <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
+        <!-- Polish Discord Section -->
+        <div class="discord-section hidden" id="polish-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-pl" class="discord-text">Dołącz do naszego Discorda:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
     </div>
     <div class="language-select-container">
         <select id="language-select" class="language-select" onchange="setLanguage(this.value)">
-            <option value="en"><img src="https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png" alt="English Flag"> English</option>
-            <option value="pl"><img src="https://www.countryflags.com/wp-content/uploads/poland-flag-png-large.png" alt="Polish Flag"> Polish</option>
+            <option value="en">English</option>
+            <option value="pl">Polski</option>
         </select>
     </div>
     <div class="git-info-container">
@@ -161,6 +167,7 @@
         const welcomeTextElement = document.getElementById('welcome-text');
         const bannerImage = document.getElementById('banner-image');
         const minigameCanvas = document.getElementById('minigame-canvas');
+        const polishDiscordSection = document.getElementById('polish-discord-section');
 
         titleElement.addEventListener('click', () => {
             clickCount++;
@@ -169,8 +176,11 @@
             }
         });
 
+        // Minigame section
+        // Resolution: Match the size of the banner image
+        // TODO: Implement the actual minigame logic
         function activateMinigame() {
-            welcomeTextElement.innerText = 'Minigame activated';
+            welcomeTextElement.innerText = 'Minigame activated\nMinigra aktywowana';
             welcomeTextElement.classList.add('minigame-activated');
             bannerImage.classList.add('hidden');
             minigameCanvas.classList.remove('hidden');
@@ -190,13 +200,11 @@
 
         function setLanguage(lang) {
             if (lang === 'pl') {
-                document.getElementById('title').innerText = '2PzGr';
-                document.getElementById('welcome-text').innerText = 'Witamy w naszym klanie War Thunder!';
-                document.getElementById('discord-text').innerText = 'Dołącz do naszego Discorda:';
+                document.getElementById('welcome-text').innerText = 'Welcome to our War Thunder Clan!\nWitamy w naszym klanie War Thunder!';
+                polishDiscordSection.classList.remove('hidden');
             } else {
-                document.getElementById('title').innerText = '2PzGr';
                 document.getElementById('welcome-text').innerText = 'Welcome to our War Thunder Clan!';
-                document.getElementById('discord-text').innerText = 'Join our Discord:';
+                polishDiscordSection.classList.add('hidden');
             }
         }
 
