@@ -117,18 +117,11 @@
         .git-info-container:hover .git-info {
             opacity: 1;
         }
-        .hidden-canvas {
-            display: none;
-        }
-        .minigame {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #000;
-            color: #fff;
-            font-size: 2em;
+        .minigame-activated {
             animation: fadeIn 2s;
+        }
+        .hidden {
+            display: none;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -143,6 +136,7 @@
             <p id="welcome-text">Welcome to our War Thunder Clan!</p>
         </header>
         <img src="Banner.PNG" alt="2PzGr Clan Banner" class="banner" id="banner-image">
+        <canvas id="minigame-canvas" class="hidden"></canvas>
         <div class="discord-section">
             <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
             <span id="discord-text" class="discord-text">Join our Discord:</span>
@@ -160,7 +154,6 @@
             Loading latest commit information...
         </div>
     </div>
-    <canvas id="minigame-canvas" class="hidden-canvas"></canvas>
 
     <script>
         let clickCount = 0;
@@ -169,21 +162,30 @@
         const bannerImage = document.getElementById('banner-image');
         const minigameCanvas = document.getElementById('minigame-canvas');
 
-        titleElement.addEventListener('click', (event) => {
-            if (event.target.innerText === 'P') {
-                clickCount++;
-                if (clickCount === 5) {
-                    activateMinigame();
-                }
+        titleElement.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 5) {
+                activateMinigame();
             }
         });
 
         function activateMinigame() {
             welcomeTextElement.innerText = 'Minigame activated';
-            welcomeTextElement.classList.add('minigame');
-            bannerImage.classList.add('hidden-canvas');
-            minigameCanvas.classList.remove('hidden-canvas');
-            // Add more code here to initialize and start the minigame
+            welcomeTextElement.classList.add('minigame-activated');
+            bannerImage.classList.add('hidden');
+            minigameCanvas.classList.remove('hidden');
+
+            // Adjust the canvas size to match the banner image
+            minigameCanvas.width = bannerImage.width;
+            minigameCanvas.height = bannerImage.height;
+
+            // Initialize and start the minigame on the canvas
+            const ctx = minigameCanvas.getContext('2d');
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, minigameCanvas.width, minigameCanvas.height);
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.fillText('Minigame is running!', 50, 50);
         }
 
         function setLanguage(lang) {
