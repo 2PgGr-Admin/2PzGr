@@ -173,6 +173,11 @@
             <span id="discord-text-ru" class="discord-text">Присоединяйтесь к нашему Discord:</span>
             <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
         </div>
+        <div class="discord-section hidden" id="spanish-discord-section">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord Logo" class="discord-logo">
+            <span id="discord-text-es" class="discord-text">Únete a nuestro Discord:</span>
+            <a href="https://discord.gg/zDGsGHRFmp" target="_blank" class="discord-link">https://discord.gg/zDGsGHRFmp</a>
+        </div>
     </div>
     <div class="language-select-container">
         <select id="language-select" class="language-select" onchange="setLanguage(this.value)">
@@ -183,6 +188,7 @@
             <option value="fr">Français</option>
             <option value="pt">Português</option>
             <option value="ru">Русский</option>
+            <option value="es">Español</option>
         </select>
     </div>
     <div class="git-info-container">
@@ -203,6 +209,7 @@
         const frenchDiscordSection = document.getElementById('french-discord-section');
         const portugueseDiscordSection = document.getElementById('portuguese-discord-section');
         const russianDiscordSection = document.getElementById('russian-discord-section');
+        const spanishDiscordSection = document.getElementById('spanish-discord-section');
 
         titleElement.addEventListener('click', () => {
             clickCount++;
@@ -242,6 +249,7 @@
                 fr: frenchDiscordSection,
                 pt: portugueseDiscordSection,
                 ru: russianDiscordSection,
+                es: spanishDiscordSection,
                 en: null
             };
 
@@ -264,6 +272,8 @@
                     return 'Welcome to our War Thunder Clan!\nBem-vindo ao nosso clã War Thunder!';
                 case 'ru':
                     return 'Welcome to our War Thunder Clan!\nДобро пожаловать в наш клан War Thunder!';
+                case 'es':
+                    return 'Welcome to our War Thunder Clan!\n¡Bienvenido a nuestro clan de War Thunder!';
                 default:
                     return 'Welcome to our War Thunder Clan!';
             }
@@ -283,6 +293,8 @@
                     return 'Minigame activated\nMinijogo ativado';
                 case 'ru':
                     return 'Minigame activated\nМини-игра активирована';
+                case 'es':
+                    return 'Minigame activated\nMinijuego activado';
                 default:
                     return 'Minigame activated';
             }
@@ -321,7 +333,8 @@
                         FR: 'fr',
                         PT: 'pt',
                         BR: 'pt',
-                        RU: 'ru'
+                        RU: 'ru',
+                        ES: 'es'
                     };
                     const lang = countryLangMap[data.country] || 'en';
                     document.getElementById('language-select').value = lang;
